@@ -1,0 +1,29 @@
+#Discription
+This app calculates the distance between two US airports in miles. The user chooses both a 'from' and a 'to' airport
+based on the airport code, city, or name. The user can clear the airports and the mileage will update as long as two
+airports are selected. The map reflects the location(s) of the airport(s).
+
+#Run
+To run, open public/index.html in browser.
+
+#Build
+To build, npm install and run gulp.
+
+#Outline
+src/main/main.html
+Layout for the app which contains the title, autocomplete forms, distance/choose airports message, and Google map.
+
+src/main/main-controller.js
+Core functionality for the app which includes filters and handlers for the autocomplete, distance calculation, and Google
+maps setup and logic.
+
+src/app.js
+Initializes angular and registers modules which it depends on.
+
+data/seed.js
+Node script to parse airports.csv into a JSON file. This data is copied into airport-factory.js for the purpose of this demo.
+In a production app, I would use a less manual process.
+
+gulpfile.js
+Concats all html, scss (which is compiled to css), and js.
+

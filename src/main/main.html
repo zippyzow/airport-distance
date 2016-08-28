@@ -1,0 +1,43 @@
+<div class="main-container" layout="column" layout-align="center center">
+  <h1 class="title">Inter-Airport Distance Calculator</h1>
+  <div layout="row">
+    <md-autocomplete class="autocomplete"
+                     md-selected-item="selectedFromAirport"
+                     md-search-text="fromSearchText"
+                     md-items="airport in ctrl.getMatches(fromSearchText, selectedToAirport)"
+                     md-selected-item-change="ctrl.handleSelectedFromAirportChange()"
+                     md-search-text-change="ctrl.handleSearchTextAirportChange()"
+                     md-item-text="ctrl.getSearchText(airport)"
+                     md-autoselect="true"
+                     md-floating-label="From">
+      <span md-highlight-text="fromSearchText">{{ctrl.getSearchText(airport)}}</span>
+    </md-autocomplete>
+
+    <md-autocomplete class="autocomplete"
+                     md-selected-item="selectedToAirport"
+                     md-search-text="toSearchText"
+                     md-items="airport in ctrl.getMatches(toSearchText, selectedFromAirport)"
+                     md-selected-item-change="ctrl.handleSelectedToAirportChange()"
+                     md-search-text-change="ctrl.handleSearchTextAirportChange()"
+                     md-item-text="ctrl.getSearchText(airport)"
+                     md-autoselect="true"
+                     md-floating-label="To">
+      <span md-highlight-text="toSearchText">{{ctrl.getSearchText(airport)}}</span>
+    </md-autocomplete>
+  </div>
+
+  <div ng-show="showDistance" class="nautical-miles-container">
+    <div class="nautical-miles">Distance: {{ distance | number: 0 }} Miles</div>
+  </div>
+
+  <div ng-show="!showDistance" class="choose-airports">Please choose airports</div>
+
+  <!--Google map-->
+  <div id="map"></div>
+
+</div>
+
+
+
+
+
